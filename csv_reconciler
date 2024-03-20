@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import argparse
+from src.csv_handler import CSVHandler
+from src.reconciliation import Reconciler
+
+
+def run_cli():
+    parser = argparse.ArgumentParser(description="CSV Reconciliation Tool")
+    parser.add_argument(
+        "-s", "--source", help="Path to the source CSV file", required=True
+    )
+    parser.add_argument(
+        "-t", "--target", help="Path to the target CSV file", required=True
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        help="Path to save the output reconciliation report",
+        required=True,
+    )
+    args = parser.parse_args()
+
+    source_data = CSVHandler(args.source).read()
+    target_data = CSVHandler(args.target).read()
+
+    reconciler = Reconciler(source_data, target_data)
+    reconciler.compare()
+
+    CSVHandler(args.output).write(
+        (
+            reconciler.absent_in_target,
+            reconciler.absent_in_source,
+            reconciler.discrepancies,
+        )
+    )
+
+
+if __name__ == "__main__":
+    run_cli()
