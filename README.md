@@ -8,7 +8,9 @@ To make a virtual environment and install requirements:
 $ make install
 ```
 
-To run the app:
+## Usage
+
+To run the tool:
 
 ```
 make run
