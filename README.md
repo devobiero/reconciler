@@ -39,5 +39,7 @@ make lint
 ```
 
 ### Project structure
-```tree
+```
+
+tree
 ```
