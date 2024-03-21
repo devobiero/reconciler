@@ -37,3 +37,7 @@ To run linter:
 ```
 make lint
 ```
+
+### Project structure
+```tree
+```
