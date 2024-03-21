@@ -1,4 +1,3 @@
-from csv import DictReader
 from datetime import date
 from pydantic import BaseModel, ValidationError
 
@@ -16,7 +15,11 @@ class Record(BaseModel):
 
 
 class Reconciler:
-    def __init__(self, source_data: DictReader, target_data: DictReader):
+    def __init__(
+        self,
+        source_data: list[dict[str, str]],
+        target_data: list[dict[str, str]],
+    ):
         self.source_data = self.__validate(source_data)
         self.target_data = self.__validate(target_data)
         self.absent_in_target: list[Record] = []
