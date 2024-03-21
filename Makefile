@@ -16,7 +16,7 @@ typing:
 
 .PHONY: test
 test:
-	pytest
+	. venv/bin/activate && pytest
 
 .PHONY: ci
 ci: lint typing test
