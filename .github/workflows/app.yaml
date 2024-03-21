@@ -12,14 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
-        shell: bash
         run: make install
       - name: Check linting errors
-        shell: bash
         run: make lint
       - name: Check types
-        shell: bash
         run: make typing
       - name: Run tests
-        shell: bash
         run: make test
