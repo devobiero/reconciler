@@ -42,4 +42,3 @@ To run linter:
 ```
 make lint
 ```
-
