@@ -2,11 +2,10 @@
 
 ## Setup
 
-Make a virtual environment and install the requirements:
+To make a virtual environment and install requirements:
 
 ```
 $ make install
-python3 -m venv venv && source venv/bin/activate && pip install -r requirements-dev.txt
 ```
 
 To run the app:
@@ -14,6 +13,13 @@ To run the app:
 ```
 make run
 ```
+
+or
+
+```
+./csv_reconciler -s ./data/source.csv -t ./data/target.csv -o ./data/reconciliation_report.csv
+```
+
 Check `./data` folder for the reconciliation report.
 
 ## Testing
