@@ -9,10 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.9"]
-
+    container:
+      image: python:3.10-buster
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
