@@ -39,7 +39,6 @@ make lint
 ```
 
 ### Project structure
-```
-
+```bash
 tree
 ```
