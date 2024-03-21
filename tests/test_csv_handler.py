@@ -81,3 +81,10 @@ def test_write(csv_handler):
         ["Type", "Record Identifier", "Field", "Source Value", "Target Value"],
         ["Discrepancy", "002", "Name", "Janet", "Jane"],
     ]
+
+
+def test_handle_file_not_found(tmp_path):
+    # Create CSVHandler instance with a non-existent file
+    handler = CSVHandler(tmp_path / "nonexistent_file.csv")
+    data = handler.read()
+    assert data == []

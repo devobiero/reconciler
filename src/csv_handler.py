@@ -6,11 +6,15 @@ class CSVHandler:
         self.filename = filename
 
     def read(self) -> list[dict[str, str]]:
-        with open(self.filename, mode="r") as file:
-            reader = csv.DictReader(file)
-            data = [row for row in reader]
+        try:
+            with open(self.filename, mode="r") as file:
+                reader = csv.DictReader(file)
+                data = [row for row in reader]
 
-        return data
+            return data
+        except FileNotFoundError:
+            print(f"File '{self.filename}' not found.")
+            return []
 
     def write(self, data):
         absent_in_target, absent_in_source, discrepancies = data
